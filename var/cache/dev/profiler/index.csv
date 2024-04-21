@@ -1,0 +1,7 @@
+f6e7a8,::1,GET,http://localhost:8000/,1713740349,d13423,500,request
+d13423,::1,GET,http://localhost:8000/,1713740349,,500,request
+0f33d1,::1,GET,http://localhost:8000/,1713740500,0a4cc6,500,request
+0a4cc6,::1,GET,http://localhost:8000/,1713740500,,500,request
+e6f952,::1,GET,http://localhost:8000/,1713741169,,200,request
+d4ab0c,127.0.0.1,GET,http://localhost:8000/api/songs/1,1713741176,,200,request
+510681,127.0.0.1,GET,http://localhost:8000/api/songs/2,1713741188,,200,request

@@ -289,6 +289,9 @@
     <service id="App\Entity" class="App\Entity" abstract="true">
       <tag name="container.excluded" source="in &quot;config/services.yaml&quot;"/>
     </service>
+    <service id="App\Controller\MixController" class="App\Controller\MixController" autowire="true" autoconfigure="true">
+      <tag name="container.error" message="The autoloader expected class &quot;App\Controller\MixController&quot; to be defined in file &quot;C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\composer/../../src\Controller\MixController.php&quot;. The file was found but the class was not in it, the class name or namespace probably has a typo."/>
+    </service>
     <service id="App\Controller\SongController" class="App\Controller\SongController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>

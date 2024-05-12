@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'a5903e890efb197b5b2a098ee53f8c76496576d6',
+        'reference' => 'e570bfdfea7dc603459db5dc0cd46ee50ac7a1ac',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'a5903e890efb197b5b2a098ee53f8c76496576d6',
+            'reference' => 'e570bfdfea7dc603459db5dc0cd46ee50ac7a1ac',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -142,6 +142,15 @@
             'reference' => 'a321d114e0a18e6497f8a2cd6f890e000cc17ecc',
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/sql-formatter',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'knplabs/knp-time-bundle' => array(
+            'pretty_version' => 'v2.2.0',
+            'version' => '2.2.0.0',
+            'reference' => '69cb36a9f22ac8432e8532c9ae84e92d46820d96',
+            'type' => 'symfony-bundle',
+            'install_path' => __DIR__ . '/../knplabs/knp-time-bundle',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -593,6 +602,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'symfony/translation' => array(
+            'pretty_version' => 'v7.0.7',
+            'version' => '7.0.7.0',
+            'reference' => '1515e03afaa93e6419aba5d5c9d209159317100b',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/translation',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'symfony/translation-contracts' => array(
             'pretty_version' => 'v3.4.1',
             'version' => '3.4.1.0',
@@ -601,6 +619,12 @@
             'install_path' => __DIR__ . '/../symfony/translation-contracts',
             'aliases' => array(),
             'dev_requirement' => false,
+        ),
+        'symfony/translation-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '2.3|3.0',
+            ),
         ),
         'symfony/twig-bridge' => array(
             'pretty_version' => 'v7.0.3',

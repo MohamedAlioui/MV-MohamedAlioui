@@ -14,6 +14,7 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
+        '/mix/new' => [[['_route' => 'app_mix_new', '_controller' => 'App\\Controller\\MixController::new'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_homepage', '_controller' => 'App\\Controller\\VinylController::homepage'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
@@ -36,8 +37,9 @@ return [
                         .')'
                     .')'
                 .')'
-                .'|/api/songs/(\\d+)(*:218)'
-                .'|/browse(?:/([^/]++))?(*:247)'
+                .'|/mix/([^/]++)(*:215)'
+                .'|/api/songs/(\\d+)(*:239)'
+                .'|/browse(?:/([^/]++))?(*:268)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -49,8 +51,9 @@ return [
         168 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        218 => [[['_route' => 'api_songs_get_one', '_controller' => 'App\\Controller\\SongController::getSong'], ['id'], ['GET' => 0], null, false, true, null]],
-        247 => [
+        215 => [[['_route' => 'app_mix_show', '_controller' => 'App\\Controller\\MixController::show'], ['id'], null, null, false, true, null]],
+        239 => [[['_route' => 'api_songs_get_one', '_controller' => 'App\\Controller\\SongController::getSong'], ['id'], ['GET' => 0], null, false, true, null]],
+        268 => [
             [['_route' => 'app_browse', 'slug' => null, '_controller' => 'App\\Controller\\VinylController::browse'], ['slug'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

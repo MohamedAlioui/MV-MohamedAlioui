@@ -93,37 +93,15 @@ class __TwigTemplate_37c8fc2a2a17721a13e82f0e717f6fd2 extends Template
         echo "</h1> <i class=\"fas fa-edit\"></i>
     <div class=\"row mt-5\">
         <div class=\"col-12 col-md-4\">
-
-            <svg width=\"100%\" height=\"100%\" viewBox=\"0 0 496 496\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">
-                <defs>
-                    <linearGradient x1=\"50%\" y1=\"0%\" x2=\"50%\" y2=\"100%\" id=\"linearGradient-1\">
-                        <stop stop-color=\"#C380F3\" offset=\"0%\"></stop>
-                        <stop stop-color=\"#4A90E2\" offset=\"100%\"></stop>
-                    </linearGradient>
-                </defs>
-                <g id=\"Mixed-Vinyl\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">
-                    <g id=\"Group\">
-                        <g id=\"record-vinyl\" fill=\"#000000\" fill-rule=\"nonzero\">
-                            <path d=\"M248,144 C190.562386,144 144,190.562386 144,248 C144,305.437614 190.562386,352 248,352 C305.437614,352 352,305.437614 352,248 C352,190.562386 305.437614,144 248,144 L248,144 Z M248,272 C234.745166,272 224,261.254834 224,248 C224,234.745166 234.745166,224 248,224 C261.254834,224 272,234.745166 272,248 C272,261.254834 261.254834,272 248,272 Z M248,0 C111,0 0,111 0,248 C0,385 111,496 248,496 C385,496 496,385 496,248 C496,111 385,0 248,0 Z M248,376 C177.307552,376 120,318.692448 120,248 C120,177.307552 177.307552,120 248,120 C318.692448,120 376,177.307552 376,248 C376,281.947711 362.514324,314.505012 338.509668,338.509668 C314.505012,362.514324 281.947711,376 248,376 Z\" id=\"Shape\"></path>
-                        </g>
-                        <g id=\"record-vinyl\" transform=\"translate(144.000000, 144.000000)\" fill=\"url(#linearGradient-1)\" fill-rule=\"nonzero\">
-                            <path d=\"M104,0 C46.562386,0 0,46.562386 0,104 C0,161.437614 46.562386,208 104,208 C161.437614,208 208,161.437614 208,104 C208,46.562386 161.437614,0 104,0 L104,0 Z M104,128 C90.745166,128 80,117.254834 80,104 C80,90.745166 90.745166,80 104,80 C117.254834,80 128,90.745166 128,104 C128,117.254834 117.254834,128 104,128 Z\" id=\"Shape\"></path>
-                        </g>
-                        <circle id=\"Oval\" stroke=\"#979797\" cx=\"248\" cy=\"248\" r=\"235\"></circle>
-                        <circle id=\"Oval\" stroke=\"#979797\" cx=\"248\" cy=\"248\" r=\"215\"></circle>
-                        <circle id=\"Oval\" stroke=\"#979797\" cx=\"248\" cy=\"248\" r=\"195\"></circle>
-                        <circle id=\"Oval\" stroke=\"#979797\" cx=\"248\" cy=\"248\" r=\"175\"></circle>
-                        <circle id=\"Oval\" stroke=\"#979797\" cx=\"248\" cy=\"248\" r=\"155\"></circle>
-                    </g>
-                </g>
-            </svg>
-        </div>
-        <div class=\"col-12 col-md-8 ps-5\">
-            <h2 class=\"mb-4\">10 songs (30 minutes of 60 still available)</h2>
             ";
-        // line 37
+        // line 10
+        echo twig_include($this->env, $context, "mix/_recordSvg.html.twig");
+        echo "
+        </div>
+            ";
+        // line 12
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["tracks"]) || array_key_exists("tracks", $context) ? $context["tracks"] : (function () { throw new RuntimeError('Variable "tracks" does not exist.', 37, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["tracks"]) || array_key_exists("tracks", $context) ? $context["tracks"] : (function () { throw new RuntimeError('Variable "tracks" does not exist.', 12, $this->source); })()));
         $context['loop'] = [
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -138,24 +116,24 @@ class __TwigTemplate_37c8fc2a2a17721a13e82f0e717f6fd2 extends Template
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["track"]) {
-            // line 38
+            // line 13
             echo "            <div class=\"song-list\" ";
-            echo $this->extensions['Symfony\UX\StimulusBundle\Twig\StimulusTwigExtension']->renderStimulusController("song-controls", ["infoUrl" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("api_songs_get_one", ["id" => twig_get_attribute($this->env, $this->source,             // line 39
-$context["loop"], "index", [], "any", false, false, false, 39)])]);
-            // line 40
+            echo $this->extensions['Symfony\UX\StimulusBundle\Twig\StimulusTwigExtension']->renderStimulusController("song-controls", ["infoUrl" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("api_songs_get_one", ["id" => twig_get_attribute($this->env, $this->source,             // line 14
+$context["loop"], "index", [], "any", false, false, false, 14)])]);
+            // line 15
             echo ">
                 <div class=\"d-flex mb-3\">
                     <a href=\"#\" ";
-            // line 42
+            // line 17
             echo $this->extensions['Symfony\UX\StimulusBundle\Twig\StimulusTwigExtension']->renderStimulusAction("song-controls", "play");
             echo ">
                         <i class=\"fas fa-play me-3\"></i>
                     </a>
                     <span class=\"song-details\">";
-            // line 45
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["track"], "song", [], "any", false, false, false, 45), "html", null, true);
+            // line 20
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["track"], "song", [], "any", false, false, false, 20), "html", null, true);
             echo " - ";
-            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["track"], "artist", [], "any", false, false, false, 45)), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["track"], "artist", [], "any", false, false, false, 20), "html", null, true);
             echo "</span>
                     <a href=\"#\">
                         <i class=\"fas fa-bars mx-3\"></i>
@@ -178,7 +156,7 @@ $context["loop"], "index", [], "any", false, false, false, 39)])]);
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['track'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 55
+        // line 30
         echo "            <button type=\"button\" class=\"btn btn-success\"><i class=\"fas fa-plus\"></i> Add a song</button>
         </div>
     </div>
@@ -213,7 +191,7 @@ $context["loop"], "index", [], "any", false, false, false, 39)])]);
      */
     public function getDebugInfo()
     {
-        return array (  182 => 55,  156 => 45,  150 => 42,  146 => 40,  144 => 39,  142 => 38,  125 => 37,  92 => 7,  89 => 6,  79 => 5,  59 => 3,  36 => 1,);
+        return array (  160 => 30,  134 => 20,  128 => 17,  124 => 15,  122 => 14,  120 => 13,  103 => 12,  98 => 10,  92 => 7,  89 => 6,  79 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -227,33 +205,8 @@ $context["loop"], "index", [], "any", false, false, false, 39)])]);
     <h1 class=\"d-inline me-3\">{{ title }}</h1> <i class=\"fas fa-edit\"></i>
     <div class=\"row mt-5\">
         <div class=\"col-12 col-md-4\">
-
-            <svg width=\"100%\" height=\"100%\" viewBox=\"0 0 496 496\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">
-                <defs>
-                    <linearGradient x1=\"50%\" y1=\"0%\" x2=\"50%\" y2=\"100%\" id=\"linearGradient-1\">
-                        <stop stop-color=\"#C380F3\" offset=\"0%\"></stop>
-                        <stop stop-color=\"#4A90E2\" offset=\"100%\"></stop>
-                    </linearGradient>
-                </defs>
-                <g id=\"Mixed-Vinyl\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">
-                    <g id=\"Group\">
-                        <g id=\"record-vinyl\" fill=\"#000000\" fill-rule=\"nonzero\">
-                            <path d=\"M248,144 C190.562386,144 144,190.562386 144,248 C144,305.437614 190.562386,352 248,352 C305.437614,352 352,305.437614 352,248 C352,190.562386 305.437614,144 248,144 L248,144 Z M248,272 C234.745166,272 224,261.254834 224,248 C224,234.745166 234.745166,224 248,224 C261.254834,224 272,234.745166 272,248 C272,261.254834 261.254834,272 248,272 Z M248,0 C111,0 0,111 0,248 C0,385 111,496 248,496 C385,496 496,385 496,248 C496,111 385,0 248,0 Z M248,376 C177.307552,376 120,318.692448 120,248 C120,177.307552 177.307552,120 248,120 C318.692448,120 376,177.307552 376,248 C376,281.947711 362.514324,314.505012 338.509668,338.509668 C314.505012,362.514324 281.947711,376 248,376 Z\" id=\"Shape\"></path>
-                        </g>
-                        <g id=\"record-vinyl\" transform=\"translate(144.000000, 144.000000)\" fill=\"url(#linearGradient-1)\" fill-rule=\"nonzero\">
-                            <path d=\"M104,0 C46.562386,0 0,46.562386 0,104 C0,161.437614 46.562386,208 104,208 C161.437614,208 208,161.437614 208,104 C208,46.562386 161.437614,0 104,0 L104,0 Z M104,128 C90.745166,128 80,117.254834 80,104 C80,90.745166 90.745166,80 104,80 C117.254834,80 128,90.745166 128,104 C128,117.254834 117.254834,128 104,128 Z\" id=\"Shape\"></path>
-                        </g>
-                        <circle id=\"Oval\" stroke=\"#979797\" cx=\"248\" cy=\"248\" r=\"235\"></circle>
-                        <circle id=\"Oval\" stroke=\"#979797\" cx=\"248\" cy=\"248\" r=\"215\"></circle>
-                        <circle id=\"Oval\" stroke=\"#979797\" cx=\"248\" cy=\"248\" r=\"195\"></circle>
-                        <circle id=\"Oval\" stroke=\"#979797\" cx=\"248\" cy=\"248\" r=\"175\"></circle>
-                        <circle id=\"Oval\" stroke=\"#979797\" cx=\"248\" cy=\"248\" r=\"155\"></circle>
-                    </g>
-                </g>
-            </svg>
+            {{ include('mix/_recordSvg.html.twig') }}
         </div>
-        <div class=\"col-12 col-md-8 ps-5\">
-            <h2 class=\"mb-4\">10 songs (30 minutes of 60 still available)</h2>
             {% for track in tracks %}
             <div class=\"song-list\" {{ stimulus_controller('song-controls', {
                 infoUrl: path('api_songs_get_one', { id: loop.index })
@@ -262,7 +215,7 @@ $context["loop"], "index", [], "any", false, false, false, 39)])]);
                     <a href=\"#\" {{ stimulus_action('song-controls', 'play') }}>
                         <i class=\"fas fa-play me-3\"></i>
                     </a>
-                    <span class=\"song-details\">{{ track.song }} - {{ track.artist|upper }}</span>
+                    <span class=\"song-details\">{{ track.song }} - {{ track.artist }}</span>
                     <a href=\"#\">
                         <i class=\"fas fa-bars mx-3\"></i>
                     </a>
@@ -276,7 +229,6 @@ $context["loop"], "index", [], "any", false, false, false, 39)])]);
         </div>
     </div>
 </div>
-{% endblock %}
-", "vinyl/homepage.html.twig", "C:\\Users\\user\\Desktop\\MV-Mohamed Alioui\\MV - Mohamed Alioui\\templates\\vinyl\\homepage.html.twig");
+{% endblock %}", "vinyl/homepage.html.twig", "C:\\Users\\user\\Desktop\\MV-Mohamed Alioui\\MV - Mohamed Alioui\\templates\\vinyl\\homepage.html.twig");
     }
 }

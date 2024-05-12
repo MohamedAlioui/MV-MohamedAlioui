@@ -26,6 +26,7 @@
       <parameter key="DoctrineMigrationsBundle">Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle</parameter>
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
       <parameter key="KnpTimeBundle">Knp\Bundle\TimeBundle\KnpTimeBundle</parameter>
+      <parameter key="StofDoctrineExtensionsBundle">Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -79,6 +80,10 @@
       <parameter key="KnpTimeBundle" type="collection">
         <parameter key="path">C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle</parameter>
         <parameter key="namespace">Knp\Bundle\TimeBundle</parameter>
+      </parameter>
+      <parameter key="StofDoctrineExtensionsBundle" type="collection">
+        <parameter key="path">C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\stof\doctrine-extensions-bundle\src</parameter>
+        <parameter key="namespace">Stof\DoctrineExtensionsBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -227,6 +232,20 @@
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine.migrations.preferred_em">null</parameter>
     <parameter key="doctrine.migrations.preferred_connection">null</parameter>
+    <parameter key="stof_doctrine_extensions.default_locale">en_US</parameter>
+    <parameter key="stof_doctrine_extensions.translation_fallback">false</parameter>
+    <parameter key="stof_doctrine_extensions.persist_default_translation">false</parameter>
+    <parameter key="stof_doctrine_extensions.skip_translation_on_load">false</parameter>
+    <parameter key="stof_doctrine_extensions.listener.translatable.class">Gedmo\Translatable\TranslatableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.timestampable.class">Gedmo\Timestampable\TimestampableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.blameable.class">Gedmo\Blameable\BlameableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.sluggable.class">Gedmo\Sluggable\SluggableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.tree.class">Gedmo\Tree\TreeListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.loggable.class">Gedmo\Loggable\LoggableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.sortable.class">Gedmo\Sortable\SortableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.softdeleteable.class">Gedmo\SoftDeleteable\SoftDeleteableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.uploadable.class">Gedmo\Uploadable\UploadableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.reference_integrity.class">Gedmo\ReferenceIntegrity\ReferenceIntegrityListener</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -1447,6 +1466,7 @@
           <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\doctrine\doctrine-bundle/translations</argument>
           <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
           <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\symfony\maker-bundle\src/translations</argument>
+          <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\stof\doctrine-extensions-bundle\src/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
@@ -1464,6 +1484,7 @@
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\doctrine\doctrine-bundle/translations</argument>
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\symfony\maker-bundle\src/translations</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\stof\doctrine-extensions-bundle\src/translations</argument>
           </argument>
         </argument>
       </argument>
@@ -4005,6 +4026,7 @@
     <service id=".time.twig.extension.time" class="Knp\Bundle\TimeBundle\Twig\Extension\TimeExtension">
       <tag name="twig.extension"/>
     </service>
+    <service id="stof_doctrine_extensions.metadata_cache" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MixController" class="App\Controller\MixController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MixController" class="App\Controller\MixController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MixController" class="App\Controller\MixController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5691,6 +5713,7 @@
     <service id="doctrine.dbal.event_manager" alias="doctrine.dbal.default_connection.event_manager"/>
     <service id="Doctrine\DBAL\Connection $defaultConnection" alias="doctrine.dbal.default_connection"/>
     <service id="Doctrine\ORM\EntityManagerInterface" alias="doctrine.orm.default_entity_manager"/>
+    <service id="doctrine.orm.metadata.annotation_reader" alias="annotation_reader"/>
     <service id="doctrine.orm.entity_manager" alias="doctrine.orm.default_entity_manager" public="true"/>
     <service id="doctrine.orm.default_metadata_cache" alias="cache.doctrine.orm.default.metadata"/>
     <service id="doctrine.orm.default_result_cache" alias="cache.doctrine.orm.default.result"/>

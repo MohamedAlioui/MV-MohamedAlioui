@@ -68,6 +68,7 @@ class ComposerStaticInita36973a31e8e07dff3fe93a6ad1984d2
             'Symfony\\Bridge\\Twig\\' => 20,
             'Symfony\\Bridge\\Monolog\\' => 23,
             'Symfony\\Bridge\\Doctrine\\' => 24,
+            'Stof\\DoctrineExtensionsBundle\\' => 30,
         ),
         'P' => 
         array (
@@ -85,6 +86,10 @@ class ComposerStaticInita36973a31e8e07dff3fe93a6ad1984d2
         array (
             'Knp\\Bundle\\TimeBundle\\' => 22,
         ),
+        'G' => 
+        array (
+            'Gedmo\\' => 6,
+        ),
         'D' => 
         array (
             'Doctrine\\SqlFormatter\\' => 22,
@@ -98,9 +103,14 @@ class ComposerStaticInita36973a31e8e07dff3fe93a6ad1984d2
             'Doctrine\\Common\\Lexer\\' => 22,
             'Doctrine\\Common\\Collections\\' => 28,
             'Doctrine\\Common\\Cache\\' => 22,
+            'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
             'Doctrine\\Bundle\\MigrationsBundle\\' => 33,
             'Doctrine\\Bundle\\DoctrineBundle\\' => 31,
+        ),
+        'B' => 
+        array (
+            'Behat\\Transliterator\\' => 21,
         ),
         'A' => 
         array (
@@ -290,6 +300,10 @@ class ComposerStaticInita36973a31e8e07dff3fe93a6ad1984d2
         array (
             0 => __DIR__ . '/..' . '/symfony/doctrine-bridge',
         ),
+        'Stof\\DoctrineExtensionsBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stof/doctrine-extensions-bundle/src',
+        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/src',
@@ -317,6 +331,10 @@ class ComposerStaticInita36973a31e8e07dff3fe93a6ad1984d2
         'Knp\\Bundle\\TimeBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-time-bundle/src',
+        ),
+        'Gedmo\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gedmo/doctrine-extensions/src',
         ),
         'Doctrine\\SqlFormatter\\' => 
         array (
@@ -362,9 +380,14 @@ class ComposerStaticInita36973a31e8e07dff3fe93a6ad1984d2
         array (
             0 => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache',
         ),
+        'Doctrine\\Common\\Annotations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations',
+        ),
         'Doctrine\\Common\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/event-manager/src',
+            1 => __DIR__ . '/..' . '/doctrine/common/src',
         ),
         'Doctrine\\Bundle\\MigrationsBundle\\' => 
         array (
@@ -373,6 +396,10 @@ class ComposerStaticInita36973a31e8e07dff3fe93a6ad1984d2
         'Doctrine\\Bundle\\DoctrineBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/doctrine-bundle/src',
+        ),
+        'Behat\\Transliterator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/behat/transliterator/src/Behat/Transliterator',
         ),
         'App\\Tests\\' => 
         array (

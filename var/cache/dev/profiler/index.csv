@@ -151,3 +151,15 @@ fa21f8,127.0.0.1,GET,http://127.0.0.1:8000/mix/new,1715549550,,200,request
 02f5d2,127.0.0.1,GET,http://127.0.0.1:8000/mix/new,1715549556,,200,request
 bfd2f7,127.0.0.1,GET,http://127.0.0.1:8000/mix/new,1715549559,,200,request
 0725f3,127.0.0.1,GET,http://127.0.0.1:8000/browse,1715549562,,200,request
+62e505,127.0.0.1,GET,http://127.0.0.1:8000/browse,1715552746,,200,request
+d9c3d0,::1,GET,http://localhost:8000/,1715552749,,200,request
+370c2c,::1,GET,http://localhost:8000/browse,1715552753,,200,request
+3069a9,::1,GET,http://localhost:8000/browse,1715552758,,200,request
+88e761,::1,GET,http://localhost:8000/mix/3,1715552762,,200,request
+6d15f4,::1,POST,http://localhost:8000/mix/3/vote,1715552766,,302,request
+cdd17d,::1,GET,http://localhost:8000/mix/3,1715552768,,200,request
+a8f66e,::1,POST,http://localhost:8000/mix/3/vote,1715552769,,302,request
+e0501d,::1,POST,http://localhost:8000/mix/3/vote,1715552770,,302,request
+ce8a59,::1,GET,http://localhost:8000/mix/3,1715552770,,200,request
+589272,::1,POST,http://localhost:8000/mix/3/vote,1715552773,,302,request
+33825b,::1,GET,http://localhost:8000/mix/3,1715552775,,200,request

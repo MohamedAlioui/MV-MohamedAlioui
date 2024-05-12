@@ -348,7 +348,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.j8u_erb"/>
+      <argument type="service" id=".service_locator.hTD.2Pt"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -2091,7 +2091,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.j8u_erb"/>
+      <argument type="service" id=".service_locator.hTD.2Pt"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -4437,17 +4437,25 @@
         <argument key="mix" type="service_closure" id=".errored..service_locator.IlfS6mK.App\Entity\VinylMix"/>
       </argument>
     </service>
+    <service id=".service_locator.7P9.byS" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="mix" type="service_closure" id=".errored..service_locator.7P9.byS.App\Entity\VinylMix"/>
+      </argument>
+    </service>
     <service id=".service_locator.SN3hQvo" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="mixRepository" type="service_closure" id="App\Repository\VinylMixRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.j8u_erb" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.hTD.2Pt" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\MixController::new" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\MixController::show" type="service_closure" id=".service_locator.IlfS6mK"/>
+        <argument key="App\Controller\MixController::vote" type="service_closure" id=".service_locator.7P9.byS"/>
         <argument key="App\Controller\VinylController::browse" type="service_closure" id=".service_locator.SN3hQvo"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
@@ -4455,6 +4463,7 @@
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="App\Controller\MixController:new" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\MixController:show" type="service_closure" id=".service_locator.IlfS6mK"/>
+        <argument key="App\Controller\MixController:vote" type="service_closure" id=".service_locator.7P9.byS"/>
         <argument key="App\Controller\VinylController:browse" type="service_closure" id=".service_locator.SN3hQvo"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
@@ -4851,6 +4860,9 @@
     </service>
     <service id=".errored..service_locator.IlfS6mK.App\Entity\VinylMix" class="App\Entity\VinylMix">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.IlfS6mK&quot;: it needs an instance of &quot;App\Entity\VinylMix&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    </service>
+    <service id=".errored..service_locator.7P9.byS.App\Entity\VinylMix" class="App\Entity\VinylMix">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.7P9.byS&quot;: it needs an instance of &quot;App\Entity\VinylMix&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
     </service>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
@@ -5689,7 +5701,7 @@
     <service id="Knp\Bundle\TimeBundle\DateTimeFormatter" alias="time.datetime_formatter"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.bJ.4HC5" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.j8u_erb"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.hTD.2Pt"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
@@ -5715,6 +5727,7 @@
     <service id=".service_locator.gFlme_s" alias=".service_locator.y4_Zrx."/>
     <service id=".service_locator.9e2t_lq" alias=".service_locator.CsMkqUa"/>
     <service id=".service_locator.021p6Rm" alias=".service_locator.IlfS6mK"/>
+    <service id=".service_locator.UYrcBMp" alias=".service_locator.7P9.byS"/>
     <service id=".service_locator.5pH3mnW" alias=".service_locator.SN3hQvo"/>
     <service id=".service_locator.YMnfGOP" alias=".service_locator.jUv.zyj"/>
   </services>

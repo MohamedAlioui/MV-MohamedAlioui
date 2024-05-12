@@ -37,9 +37,12 @@ return [
                         .')'
                     .')'
                 .')'
-                .'|/mix/([^/]++)(*:215)'
-                .'|/api/songs/(\\d+)(*:239)'
-                .'|/browse(?:/([^/]++))?(*:268)'
+                .'|/mix/([^/]++)(?'
+                    .'|(*:218)'
+                    .'|/vote(*:231)'
+                .')'
+                .'|/api/songs/(\\d+)(*:256)'
+                .'|/browse(?:/([^/]++))?(*:285)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -51,9 +54,10 @@ return [
         168 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        215 => [[['_route' => 'app_mix_show', '_controller' => 'App\\Controller\\MixController::show'], ['id'], null, null, false, true, null]],
-        239 => [[['_route' => 'api_songs_get_one', '_controller' => 'App\\Controller\\SongController::getSong'], ['id'], ['GET' => 0], null, false, true, null]],
-        268 => [
+        218 => [[['_route' => 'app_mix_show', '_controller' => 'App\\Controller\\MixController::show'], ['id'], null, null, false, true, null]],
+        231 => [[['_route' => 'app_mix_vote', '_controller' => 'App\\Controller\\MixController::vote'], ['id'], ['POST' => 0], null, false, false, null]],
+        256 => [[['_route' => 'api_songs_get_one', '_controller' => 'App\\Controller\\SongController::getSong'], ['id'], ['GET' => 0], null, false, true, null]],
+        285 => [
             [['_route' => 'app_browse', 'slug' => null, '_controller' => 'App\\Controller\\VinylController::browse'], ['slug'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

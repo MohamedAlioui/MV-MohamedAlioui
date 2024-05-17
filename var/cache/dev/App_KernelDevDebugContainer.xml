@@ -9,8 +9,8 @@
     <parameter key="kernel.runtime_mode.cli">%env(not:default:kernel.runtime_mode.web:)%</parameter>
     <parameter key="kernel.runtime_mode.worker">%env(bool:default::key:worker:default:kernel.runtime_mode:)%</parameter>
     <parameter key="kernel.debug">true</parameter>
-    <parameter key="kernel.build_dir">C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev</parameter>
-    <parameter key="kernel.cache_dir">C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev</parameter>
+    <parameter key="kernel.build_dir">C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev</parameter>
+    <parameter key="kernel.cache_dir">C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev</parameter>
     <parameter key="kernel.logs_dir">C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\log</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
@@ -28,6 +28,7 @@
       <parameter key="KnpTimeBundle">Knp\Bundle\TimeBundle\KnpTimeBundle</parameter>
       <parameter key="StofDoctrineExtensionsBundle">Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle</parameter>
       <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
+      <parameter key="BabDevPagerfantaBundle">BabDev\PagerfantaBundle\BabDevPagerfantaBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -90,6 +91,10 @@
         <parameter key="path">C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\doctrine\doctrine-fixtures-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\FixturesBundle</parameter>
       </parameter>
+      <parameter key="BabDevPagerfantaBundle" type="collection">
+        <parameter key="path">C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle</parameter>
+        <parameter key="namespace">BabDev\PagerfantaBundle</parameter>
+      </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
@@ -122,12 +127,12 @@
     <parameter key="translator.logging">false</parameter>
     <parameter key="translator.default_path">C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui/translations</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/App_KernelDevDebugContainer.xml</parameter>
+    <parameter key="debug.container.dump">C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/App_KernelDevDebugContainer.xml</parameter>
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
     <parameter key="router.resource">kernel::loadRoutes</parameter>
-    <parameter key="router.cache_dir">C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev</parameter>
+    <parameter key="router.cache_dir">C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
     <parameter key="cache.prefix.seed">_C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui.App_KernelDevDebugContainer</parameter>
@@ -143,7 +148,7 @@
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_main_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/profiler</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
     </parameter>
@@ -233,7 +238,7 @@
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
     <parameter key="doctrine.orm.enable_lazy_ghost_objects">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine.migrations.preferred_em">null</parameter>
     <parameter key="doctrine.migrations.preferred_connection">null</parameter>
@@ -321,6 +326,14 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
+    <service id="App\Controller\VinylController" class="App\Controller\VinylController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument>true</argument>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.6DiDDZc.App\Controller\VinylController"/>
+      </call>
+    </service>
     <service id="App\Entity" class="App\Entity" abstract="true">
       <tag name="container.excluded" source="in &quot;config/services.yaml&quot;"/>
     </service>
@@ -328,21 +341,14 @@
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\MixController"/>
+        <argument type="service" id=".service_locator.6DiDDZc.App\Controller\MixController"/>
       </call>
     </service>
     <service id="App\Controller\SongController" class="App\Controller\SongController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\SongController"/>
-      </call>
-    </service>
-    <service id="App\Controller\VinylController" class="App\Controller\VinylController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\VinylController"/>
+        <argument type="service" id=".service_locator.6DiDDZc.App\Controller\SongController"/>
       </call>
     </service>
     <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
@@ -456,7 +462,7 @@
       </argument>
     </service>
     <service id="http_cache.store" class="Symfony\Component\HttpKernel\HttpCache\Store">
-      <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/http_cache</argument>
+      <argument>C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/http_cache</argument>
     </service>
     <service id="url_helper" class="Symfony\Component\HttpFoundation\UrlHelper">
       <argument type="service" id="request_stack"/>
@@ -466,7 +472,7 @@
       <tag name="container.no_preload"/>
       <argument type="tagged_iterator" tag="kernel.cache_warmer"/>
       <argument>true</argument>
-      <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/App_KernelDevDebugContainerDeprecations.log</argument>
+      <argument>C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/App_KernelDevDebugContainerDeprecations.log</argument>
     </service>
     <service id="cache_clearer" class="Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer">
       <argument type="tagged_iterator" tag="kernel.cache_clearer"/>
@@ -914,8 +920,11 @@
       <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui/templates</argument>
       <argument type="collection">
         <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations</argument>
+        <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations</argument>
       </argument>
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\pagerfanta\twig/templates/</argument>
+      </argument>
       <argument type="collection"/>
       <call method="setName">
         <argument>debug:translation</argument>
@@ -935,8 +944,11 @@
       <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui/templates</argument>
       <argument type="collection">
         <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations</argument>
+        <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations</argument>
       </argument>
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\pagerfanta\twig/templates/</argument>
+      </argument>
       <argument type="collection"/>
       <call method="setName">
         <argument>translation:extract</argument>
@@ -1112,7 +1124,7 @@
       <argument></argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1131,7 +1143,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/pools/app</argument>
+      <argument>C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
@@ -1336,11 +1348,12 @@
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/translations</argument>
+        <argument key="cache_dir">C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/translations</argument>
         <argument key="debug">true</argument>
         <argument key="resource_files" type="collection">
           <argument key="ar" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.ar.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.ar.xliff</argument>
           </argument>
           <argument key="bg" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.bg.xliff</argument>
@@ -1350,33 +1363,42 @@
           </argument>
           <argument key="ca" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.ca.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.ca.xliff</argument>
           </argument>
           <argument key="cs" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.cs.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.cs.xliff</argument>
           </argument>
           <argument key="da" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.da.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.da.xliff</argument>
           </argument>
           <argument key="de" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.de.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.de.xliff</argument>
           </argument>
           <argument key="en" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.en.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.en.xliff</argument>
           </argument>
           <argument key="eo" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.eo.xliff</argument>
           </argument>
           <argument key="es" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.es.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.es.xliff</argument>
           </argument>
           <argument key="eu" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.eu.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.eu.xliff</argument>
           </argument>
           <argument key="fi" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.fi.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.fi.xliff</argument>
           </argument>
           <argument key="fr" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.fr.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.fr.xliff</argument>
           </argument>
           <argument key="hr_HR" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.hr_HR.xliff</argument>
@@ -1389,6 +1411,7 @@
           </argument>
           <argument key="it" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.it.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.it.xliff</argument>
           </argument>
           <argument key="ja" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.ja.xliff</argument>
@@ -1404,15 +1427,18 @@
           </argument>
           <argument key="nl" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.nl.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.nl.xliff</argument>
           </argument>
           <argument key="nn" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.nn.xliff</argument>
           </argument>
           <argument key="pl" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.pl.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.pl.xliff</argument>
           </argument>
           <argument key="pt" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.pt.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.pt.xliff</argument>
           </argument>
           <argument key="pt_BR" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.pt_BR.xliff</argument>
@@ -1422,30 +1448,38 @@
           </argument>
           <argument key="ro" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.ro.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.ro.xliff</argument>
           </argument>
           <argument key="ru" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.ru.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.ru.xliff</argument>
           </argument>
           <argument key="sk" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.sk.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.sk.xliff</argument>
           </argument>
           <argument key="sl" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.sl.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.sl.xliff</argument>
           </argument>
           <argument key="sr_Latin" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.sr_Latin.xliff</argument>
           </argument>
           <argument key="sv" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.sv.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.sv.xliff</argument>
           </argument>
           <argument key="th" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.th.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.th.xliff</argument>
           </argument>
           <argument key="tr" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.tr.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.tr.xliff</argument>
           </argument>
           <argument key="uk" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.uk.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.uk.xliff</argument>
           </argument>
           <argument key="vi" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.vi.xliff</argument>
@@ -1455,6 +1489,7 @@
           </argument>
           <argument key="zh_CN" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.zh_CN.xliff</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.zh_CN.xliff</argument>
           </argument>
           <argument key="zh_HK" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.zh_HK.xliff</argument>
@@ -1462,9 +1497,37 @@
           <argument key="zh_TW" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations\time.zh_TW.xliff</argument>
           </argument>
+          <argument key="az" type="collection">
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.az.xliff</argument>
+          </argument>
+          <argument key="fa" type="collection">
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.fa.xliff</argument>
+          </argument>
+          <argument key="gl" type="collection">
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.gl.xliff</argument>
+          </argument>
+          <argument key="hr" type="collection">
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.hr.xliff</argument>
+          </argument>
+          <argument key="no" type="collection">
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.no.xliff</argument>
+          </argument>
+          <argument key="oc" type="collection">
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.oc.xliff</argument>
+          </argument>
+          <argument key="sr_Cyrl" type="collection">
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.sr_Cyrl.xliff</argument>
+          </argument>
+          <argument key="sr_Latn" type="collection">
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.sr_Latn.xliff</argument>
+          </argument>
+          <argument key="sw" type="collection">
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations\pagerfanta.sw.xliff</argument>
+          </argument>
         </argument>
         <argument key="scanned_directories" type="collection">
           <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations</argument>
+          <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations</argument>
           <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui/translations</argument>
           <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\symfony\framework-bundle/translations</argument>
           <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\symfony\twig-bundle/translations</argument>
@@ -1484,6 +1547,7 @@
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\knplabs\knp-time-bundle/translations</argument>
+            <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/translations</argument>
             <argument>translations</argument>
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\symfony\framework-bundle/translations</argument>
             <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\symfony\twig-bundle/translations</argument>
@@ -1791,6 +1855,22 @@
           <argument>onKernelException</argument>
         </argument>
         <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.exception</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="pagerfanta.event_listener.convert_not_valid_max_per_page_to_not_found"/>
+          <argument>onKernelException</argument>
+        </argument>
+        <argument>512</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.exception</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="pagerfanta.event_listener.convert_not_valid_current_page_to_not_found"/>
+          <argument>onKernelException</argument>
+        </argument>
+        <argument>512</argument>
       </call>
       <call method="addListener">
         <argument>kernel.response</argument>
@@ -2226,10 +2306,10 @@
     <service id="router.default" class="Symfony\Bundle\FrameworkBundle\Routing\Router">
       <tag name="monolog.logger" channel="router"/>
       <tag name="container.service_subscriber" id="routing.loader"/>
-      <argument type="service" id=".service_locator.8NWUArH.router.default"/>
+      <argument type="service" id=".service_locator.EMavxuq.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
-        <argument key="cache_dir">C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev</argument>
+        <argument key="cache_dir">C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\CompiledUrlGenerator</argument>
         <argument key="generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\CompiledUrlGeneratorDumper</argument>
@@ -2286,6 +2366,13 @@
     <service id="Symfony\Bundle\FrameworkBundle\Controller\TemplateController" class="Symfony\Bundle\FrameworkBundle\Controller\TemplateController" public="true">
       <argument type="service" id="twig" on-invalid="ignore"/>
     </service>
+    <service id="property_accessor" class="Symfony\Component\PropertyAccess\PropertyAccessor">
+      <argument>3</argument>
+      <argument>2</argument>
+      <argument type="service" id="cache.property_access" on-invalid="ignore"/>
+      <argument type="service" id="property_info.reflection_extractor" on-invalid="null"/>
+      <argument type="service" id="property_info.reflection_extractor" on-invalid="null"/>
+    </service>
     <service id="secrets.vault" class="Symfony\Bundle\FrameworkBundle\Secrets\SodiumVault">
       <tag name="container.env_var_loader"/>
       <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui/config/secrets/%env(default:kernel.environment:APP_RUNTIME_ENV)%</argument>
@@ -2298,6 +2385,30 @@
     <service id="secrets.local_vault" class="Symfony\Bundle\FrameworkBundle\Secrets\DotenvVault">
       <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui/.env.dev.local</argument>
     </service>
+    <service id="property_info" class="Symfony\Component\PropertyInfo\PropertyInfoExtractor">
+      <argument type="iterator">
+        <argument type="service" id="property_info.reflection_extractor"/>
+        <argument type="service" id="doctrine.orm.default_entity_manager.property_info_extractor"/>
+      </argument>
+      <argument type="iterator">
+        <argument type="service" id="doctrine.orm.default_entity_manager.property_info_extractor"/>
+        <argument type="service" id="property_info.reflection_extractor"/>
+      </argument>
+      <argument type="iterator"/>
+      <argument type="iterator">
+        <argument type="service" id="doctrine.orm.default_entity_manager.property_info_extractor"/>
+        <argument type="service" id="property_info.reflection_extractor"/>
+      </argument>
+      <argument type="iterator">
+        <argument type="service" id="property_info.reflection_extractor"/>
+      </argument>
+    </service>
+    <service id="property_info.reflection_extractor" class="Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor">
+      <tag name="property_info.list_extractor" priority="-1000"/>
+      <tag name="property_info.type_extractor" priority="-1002"/>
+      <tag name="property_info.access_extractor" priority="-1000"/>
+      <tag name="property_info.initializable_extractor" priority="-1000"/>
+    </service>
     <service id=".cache_connection.GD_MSZC" class="Symfony\Component\Cache\Adapter\AbstractAdapter" constructor="createConnection">
       <argument>redis://localhost</argument>
       <argument type="collection">
@@ -2309,6 +2420,10 @@
       <argument type="collection">
         <argument key="lazy">true</argument>
       </argument>
+    </service>
+    <service id="cache.property_access" class="Symfony\Component\Cache\Adapter\ArrayAdapter">
+      <argument>0</argument>
+      <argument>false</argument>
     </service>
     <service id="session.factory" class="Symfony\Component\HttpFoundation\Session\SessionFactory">
       <argument type="service" id="request_stack"/>
@@ -2340,7 +2455,7 @@
       <argument>true</argument>
     </service>
     <service id="session.storage.factory.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorageFactory">
-      <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/sessions</argument>
+      <argument>C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag">
@@ -2430,7 +2545,7 @@
       </call>
     </service>
     <service id="profiler.storage" class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage">
-      <argument>file:C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/profiler</argument>
+      <argument>file:C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/profiler</argument>
     </service>
     <service id="profiler_listener" class="Symfony\Component\HttpKernel\EventListener\ProfilerListener">
       <tag name="kernel.event_subscriber"/>
@@ -2489,7 +2604,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <tag name="data_collector" template="@WebProfiler/Collector/logger.html.twig" id="logger" priority="300"/>
       <argument type="service" id="monolog.logger.profiler" on-invalid="ignore"/>
-      <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/App_KernelDevDebugContainer</argument>
+      <argument>C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/App_KernelDevDebugContainer</argument>
       <argument type="service" id=".virtual_request_stack" on-invalid="ignore"/>
     </service>
     <service id="data_collector.time" class="Symfony\Component\HttpKernel\DataCollector\TimeDataCollector">
@@ -2569,7 +2684,7 @@
       <tag name="container.preload" class="Twig\TemplateWrapper"/>
       <argument type="service" id="twig.loader.native_filesystem"/>
       <argument type="collection">
-        <argument key="cache">C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/twig</argument>
+        <argument key="cache">C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
@@ -2624,6 +2739,9 @@
         <argument type="service" id=".time.twig.extension.time"/>
       </call>
       <call method="addExtension">
+        <argument type="service" id="pagerfanta.twig_extension"/>
+      </call>
+      <call method="addExtension">
         <argument type="service" id="stimulus.twig_extension"/>
       </call>
       <call method="addGlobal">
@@ -2651,6 +2769,12 @@
           <argument>suggestTag</argument>
         </argument>
       </call>
+      <call method="registerUndefinedFunctionCallback">
+        <argument type="collection">
+          <argument type="service" id="pagerfanta.undefined_callable_handler"/>
+          <argument>onUndefinedFunction</argument>
+        </argument>
+      </call>
       <configurator service="twig.configurator.environment" method="configure"/>
     </service>
     <service id="twig.app_variable" class="Symfony\Bridge\Twig\AppVariable">
@@ -2672,7 +2796,9 @@
     </service>
     <service id="twig.template_iterator" class="Symfony\Bundle\TwigBundle\TemplateIterator">
       <argument type="service" id="kernel"/>
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\pagerfanta\twig/templates/">Pagerfanta</argument>
+      </argument>
       <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui/templates</argument>
       <argument type="collection">
         <argument>*.twig</argument>
@@ -2688,6 +2814,10 @@
       <tag name="twig.loader"/>
       <argument type="collection"/>
       <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui</argument>
+      <call method="addPath">
+        <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\pagerfanta\twig/templates/</argument>
+        <argument>Pagerfanta</argument>
+      </call>
       <call method="addPath">
         <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\symfony\web-profiler-bundle/Resources/views</argument>
         <argument>WebProfiler</argument>
@@ -2719,6 +2849,14 @@
       <call method="addPath">
         <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\doctrine\doctrine-migrations-bundle/Resources/views</argument>
         <argument>!DoctrineMigrations</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/templates</argument>
+        <argument>BabDevPagerfanta</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\vendor\babdev\pagerfanta-bundle/templates</argument>
+        <argument>!BabDevPagerfanta</argument>
       </call>
       <call method="addPath">
         <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui/templates</argument>
@@ -2788,7 +2926,7 @@
       <argument>,</argument>
     </service>
     <service id="twig.runtime_loader" class="Twig\RuntimeLoader\ContainerRuntimeLoader">
-      <argument type="service" id=".service_locator.mDRgrI1"/>
+      <argument type="service" id=".service_locator.klwf_mj"/>
     </service>
     <service id="twig.error_renderer.html" class="Symfony\Bridge\Twig\ErrorRenderer\TwigErrorRenderer">
       <argument type="service" id="twig"/>
@@ -3105,10 +3243,10 @@
       <argument type="collection">
         <argument key="_default">C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui/public/build/entrypoints.json</argument>
       </argument>
-      <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/webpack_encore.cache.php</argument>
+      <argument>C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/webpack_encore.cache.php</argument>
     </service>
     <service id="webpack_encore.cache" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" constructor="create">
-      <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/webpack_encore.cache.php</argument>
+      <argument>C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/webpack_encore.cache.php</argument>
       <argument type="service" id="cache.webpack_encore"/>
     </service>
     <service id="cache.webpack_encore" class="Symfony\Component\Cache\Adapter\TraceableAdapter">
@@ -3158,7 +3296,7 @@
       <tag name="twig.extension"/>
     </service>
     <service id="turbo.id_accessor" class="Symfony\UX\Turbo\Broadcaster\IdAccessor">
-      <argument>null</argument>
+      <argument type="service" id="property_accessor" on-invalid="null"/>
       <argument type="service" id="doctrine" on-invalid="null"/>
     </service>
     <service id="turbo.broadcaster.action_renderer" class="Symfony\UX\Turbo\Broadcaster\TwigBroadcaster">
@@ -3638,7 +3776,7 @@
         <argument type="service" id=".doctrine.orm.default_metadata_driver"/>
       </call>
       <call method="setProxyDir">
-        <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/doctrine/orm/Proxies</argument>
+        <argument>C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/doctrine/orm/Proxies</argument>
       </call>
       <call method="setProxyNamespace">
         <argument>Proxies</argument>
@@ -3702,6 +3840,12 @@
       <argument type="service" id="doctrine.orm.default_configuration"/>
       <argument type="service" id="doctrine.dbal.default_connection.event_manager"/>
       <configurator service="doctrine.orm.default_manager_configurator" method="configure"/>
+    </service>
+    <service id="doctrine.orm.default_entity_manager.property_info_extractor" class="Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor">
+      <tag name="property_info.list_extractor" priority="-1001"/>
+      <tag name="property_info.type_extractor" priority="-999"/>
+      <tag name="property_info.access_extractor" priority="-999"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="doctrine.migrations.dependency_factory" class="Doctrine\Migrations\DependencyFactory" constructor="fromEntityManager">
       <argument type="service" id="doctrine.migrations.configuration_loader"/>
@@ -4150,15 +4294,75 @@
     <service id="doctrine.fixtures.purger.orm_purger_factory" class="Doctrine\Bundle\FixturesBundle\Purger\ORMPurgerFactory">
       <tag name="doctrine.fixtures.purger_factory" alias="default"/>
     </service>
+    <service id="pagerfanta.route_generator_factory" class="BabDev\PagerfantaBundle\RouteGenerator\RequestAwareRouteGeneratorFactory">
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="request_stack"/>
+      <argument type="service" id="property_accessor"/>
+    </service>
+    <service id="pagerfanta.view.default" class="Pagerfanta\View\DefaultView">
+      <tag name="pagerfanta.view" alias="default"/>
+    </service>
+    <service id="pagerfanta.view.foundation6" class="Pagerfanta\View\Foundation6View">
+      <tag name="pagerfanta.view" alias="foundation6"/>
+    </service>
+    <service id="pagerfanta.view.semantic_ui" class="Pagerfanta\View\SemanticUiView">
+      <tag name="pagerfanta.view" alias="semantic_ui"/>
+    </service>
+    <service id="pagerfanta.view.twitter_bootstrap" class="Pagerfanta\View\TwitterBootstrapView">
+      <tag name="pagerfanta.view" alias="twitter_bootstrap"/>
+    </service>
+    <service id="pagerfanta.view.twitter_bootstrap3" class="Pagerfanta\View\TwitterBootstrap3View">
+      <tag name="pagerfanta.view" alias="twitter_bootstrap3"/>
+    </service>
+    <service id="pagerfanta.view.twitter_bootstrap4" class="Pagerfanta\View\TwitterBootstrap4View">
+      <tag name="pagerfanta.view" alias="twitter_bootstrap4"/>
+    </service>
+    <service id="pagerfanta.view.twitter_bootstrap5" class="Pagerfanta\View\TwitterBootstrap5View">
+      <tag name="pagerfanta.view" alias="twitter_bootstrap5"/>
+    </service>
+    <service id="pagerfanta.view_factory" class="BabDev\PagerfantaBundle\View\ContainerBackedImmutableViewFactory">
+      <argument type="service" id=".service_locator.JjuJO9N"/>
+      <argument type="collection">
+        <argument key="default">pagerfanta.view.default</argument>
+        <argument key="foundation6">pagerfanta.view.foundation6</argument>
+        <argument key="semantic_ui">pagerfanta.view.semantic_ui</argument>
+        <argument key="twitter_bootstrap">pagerfanta.view.twitter_bootstrap</argument>
+        <argument key="twitter_bootstrap3">pagerfanta.view.twitter_bootstrap3</argument>
+        <argument key="twitter_bootstrap4">pagerfanta.view.twitter_bootstrap4</argument>
+        <argument key="twitter_bootstrap5">pagerfanta.view.twitter_bootstrap5</argument>
+        <argument key="twig">pagerfanta.view.twig</argument>
+      </argument>
+    </service>
+    <service id="pagerfanta.twig_extension" class="Pagerfanta\Twig\Extension\PagerfantaExtension">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="pagerfanta.twig_runtime" class="Pagerfanta\Twig\Extension\PagerfantaRuntime">
+      <tag name="twig.runtime"/>
+      <argument>default</argument>
+      <argument type="service" id="pagerfanta.view_factory"/>
+      <argument type="service" id="pagerfanta.route_generator_factory"/>
+    </service>
+    <service id="pagerfanta.undefined_callable_handler" class="BabDev\PagerfantaBundle\Twig\UndefinedCallableHandler"/>
+    <service id="pagerfanta.view.twig" class="Pagerfanta\Twig\View\TwigView">
+      <tag name="pagerfanta.view" alias="twig"/>
+      <argument type="service" id="twig"/>
+      <argument>@BabDevPagerfanta/default.html.twig</argument>
+    </service>
+    <service id="pagerfanta.event_listener.convert_not_valid_max_per_page_to_not_found" class="BabDev\PagerfantaBundle\EventListener\ConvertNotValidCurrentPageToNotFoundListener">
+      <tag name="kernel.event_listener" event="kernel.exception" method="onKernelException" priority="512"/>
+    </service>
+    <service id="pagerfanta.event_listener.convert_not_valid_current_page_to_not_found" class="BabDev\PagerfantaBundle\EventListener\ConvertNotValidMaxPerPageToNotFoundListener">
+      <tag name="kernel.event_listener" event="kernel.exception" method="onKernelException" priority="512"/>
+    </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\VinylController" class="App\Controller\VinylController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\VinylController" class="App\Controller\VinylController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\VinylController" class="App\Controller\VinylController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MixController" class="App\Controller\MixController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MixController" class="App\Controller\MixController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MixController" class="App\Controller\MixController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SongController" class="App\Controller\SongController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SongController" class="App\Controller\SongController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SongController" class="App\Controller\SongController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\VinylController" class="App\Controller\VinylController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\VinylController" class="App\Controller\VinylController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\VinylController" class="App\Controller\VinylController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\VinylMixRepository" class="App\Repository\VinylMixRepository" autowire="true" abstract="true"/>
@@ -4586,6 +4790,12 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.y4_Zrx..Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
+    <service id=".service_locator.SN3hQvo" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="mixRepository" type="service_closure" id="App\Repository\VinylMixRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.CsMkqUa" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4603,12 +4813,6 @@
       <argument type="collection">
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
         <argument key="mix" type="service_closure" id=".errored..service_locator.7P9.byS.App\Entity\VinylMix"/>
-      </argument>
-    </service>
-    <service id=".service_locator.SN3hQvo" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="mixRepository" type="service_closure" id="App\Repository\VinylMixRepository"/>
       </argument>
     </service>
     <service id=".service_locator.hTD.2Pt" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -4827,6 +5031,19 @@
         <argument>default</argument>
       </call>
     </service>
+    <service id=".service_locator.JjuJO9N" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="default" type="service_closure" id="pagerfanta.view.default"/>
+        <argument key="foundation6" type="service_closure" id="pagerfanta.view.foundation6"/>
+        <argument key="semantic_ui" type="service_closure" id="pagerfanta.view.semantic_ui"/>
+        <argument key="twig" type="service_closure" id="pagerfanta.view.twig"/>
+        <argument key="twitter_bootstrap" type="service_closure" id="pagerfanta.view.twitter_bootstrap"/>
+        <argument key="twitter_bootstrap3" type="service_closure" id="pagerfanta.view.twitter_bootstrap3"/>
+        <argument key="twitter_bootstrap4" type="service_closure" id="pagerfanta.view.twitter_bootstrap4"/>
+        <argument key="twitter_bootstrap5" type="service_closure" id="pagerfanta.view.twitter_bootstrap5"/>
+      </argument>
+    </service>
     <service id=".service_locator.O24_MAy" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4843,7 +5060,7 @@
         <argument key="translation.loader.yml" type="service_closure" id="translation.loader.yml"/>
       </argument>
     </service>
-    <service id=".service_locator.jUv.zyj" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.6DiDDZc" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="http_kernel" type="service_closure" id="http_kernel" on-invalid="ignore"/>
@@ -4853,23 +5070,23 @@
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id=".service_locator.jUv.zyj.App\Controller\MixController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\MixController"/>
-      <argument>App\Controller\MixController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.jUv.zyj" method="withContext"/>
-    </service>
-    <service id=".service_locator.jUv.zyj.App\Controller\SongController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\SongController"/>
-      <argument>App\Controller\SongController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.jUv.zyj" method="withContext"/>
-    </service>
-    <service id=".service_locator.jUv.zyj.App\Controller\VinylController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.6DiDDZc.App\Controller\VinylController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\VinylController"/>
       <argument>App\Controller\VinylController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.jUv.zyj" method="withContext"/>
+      <factory service=".service_locator.6DiDDZc" method="withContext"/>
+    </service>
+    <service id=".service_locator.6DiDDZc.App\Controller\MixController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\MixController"/>
+      <argument>App\Controller\MixController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.6DiDDZc" method="withContext"/>
+    </service>
+    <service id=".service_locator.6DiDDZc.App\Controller\SongController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\SongController"/>
+      <argument>App\Controller\SongController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.6DiDDZc" method="withContext"/>
     </service>
     <service id=".service_locator.fuYM_Z." class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
@@ -4883,17 +5100,17 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.fuYM_Z." method="withContext"/>
     </service>
-    <service id=".service_locator.8NWUArH" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.EMavxuq" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="routing.loader" type="service_closure" id="routing.loader"/>
       </argument>
     </service>
-    <service id=".service_locator.8NWUArH.router.default" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.EMavxuq.router.default" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="router.default"/>
       <argument>router.default</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.8NWUArH" method="withContext"/>
+      <factory service=".service_locator.EMavxuq" method="withContext"/>
     </service>
     <service id=".service_locator.cUcW89y" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
@@ -4985,9 +5202,9 @@
       <call method="allowControllers">
         <argument type="collection">
           <argument>App\Kernel</argument>
+          <argument>App\Controller\VinylController</argument>
           <argument>App\Controller\MixController</argument>
           <argument>App\Controller\SongController</argument>
-          <argument>App\Controller\VinylController</argument>
           <argument>Doctrine\Bundle\DoctrineBundle\Controller\ProfilerController</argument>
         </argument>
       </call>
@@ -5764,7 +5981,7 @@
     <service id="cache.app.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter">
       <argument>Pxqa2gqGEq</argument>
       <argument>0</argument>
-      <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/pools/app</argument>
+      <argument>C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
@@ -5774,7 +5991,7 @@
       <argument>MFgFVHcL6B</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -5782,7 +5999,7 @@
       <argument>9Qbn+h9L+A</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -5790,7 +6007,7 @@
       <argument>dE0PhlJZK1</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -5798,7 +6015,7 @@
       <argument>vdrRVatn0Y</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -5806,16 +6023,17 @@
       <argument>XVYSoLAVHq</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\user\Desktop\MV-Mohamed Alioui\MV - Mohamed Alioui\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/user/Desktop/MV-Mohamed Alioui/MV - Mohamed Alioui/var/cache/dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.doctrine.orm.default.result.recorder_inner" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
     <service id="cache.doctrine.orm.default.query.recorder_inner" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
-    <service id=".service_locator.mDRgrI1" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.klwf_mj" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="Knp\Bundle\TimeBundle\DateTimeFormatter" type="service_closure" id="time.datetime_formatter"/>
+        <argument key="Pagerfanta\Twig\Extension\PagerfantaRuntime" type="service_closure" id="pagerfanta.twig_runtime"/>
         <argument key="Symfony\Bridge\Twig\Extension\HttpKernelRuntime" type="service_closure" id="twig.runtime.httpkernel"/>
       </argument>
     </service>
@@ -5861,6 +6079,15 @@
     <service id="Symfony\Component\Routing\Matcher\UrlMatcherInterface" alias="router.default"/>
     <service id="Symfony\Component\Routing\RequestContextAwareInterface" alias="router.default"/>
     <service id="Symfony\Component\Routing\RequestContext" alias="router.request_context"/>
+    <service id="Symfony\Component\PropertyAccess\PropertyAccessorInterface" alias="property_accessor"/>
+    <service id="Symfony\Component\PropertyInfo\PropertyAccessExtractorInterface" alias="property_info"/>
+    <service id="Symfony\Component\PropertyInfo\PropertyDescriptionExtractorInterface" alias="property_info"/>
+    <service id="Symfony\Component\PropertyInfo\PropertyInfoExtractorInterface" alias="property_info"/>
+    <service id="Symfony\Component\PropertyInfo\PropertyTypeExtractorInterface" alias="property_info"/>
+    <service id="Symfony\Component\PropertyInfo\PropertyListExtractorInterface" alias="property_info"/>
+    <service id="Symfony\Component\PropertyInfo\PropertyInitializableExtractorInterface" alias="property_info"/>
+    <service id="Symfony\Component\PropertyInfo\PropertyReadInfoExtractorInterface" alias="property_info.reflection_extractor"/>
+    <service id="Symfony\Component\PropertyInfo\PropertyWriteInfoExtractorInterface" alias="property_info.reflection_extractor"/>
     <service id="cache.default_redis_provider" alias=".cache_connection.GD_MSZC"/>
     <service id="cache.default_memcached_provider" alias=".cache_connection.JKE6keX"/>
     <service id="cache.default_doctrine_dbal_provider" alias="doctrine.dbal.default_connection"/>
@@ -5888,6 +6115,8 @@
     <service id="doctrine.orm.default_entity_manager.event_manager" alias="doctrine.dbal.default_connection.event_manager"/>
     <service id="doctrine.migrations.metadata_storage" alias="doctrine.migrations.storage.table_storage"/>
     <service id="Knp\Bundle\TimeBundle\DateTimeFormatter" alias="time.datetime_formatter"/>
+    <service id="Pagerfanta\RouteGenerator\RouteGeneratorFactoryInterface" alias="pagerfanta.route_generator_factory"/>
+    <service id="Pagerfanta\View\ViewFactoryInterface" alias="pagerfanta.view_factory"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.bJ.4HC5" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
     <service id="argument_resolver.controller_locator" alias=".service_locator.hTD.2Pt"/>
@@ -5905,6 +6134,7 @@
     <service id="Psr\Log\LoggerInterface $deprecationLogger" alias="monolog.logger.deprecation"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id=".service_locator.XDGmiR3" alias=".1_ServiceLocator~jIfOJx2"/>
+    <service id=".service_locator.ulIyuRi" alias=".service_locator.6DiDDZc"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>
     <service id="controller_resolver" alias="debug.controller_resolver"/>
     <service id="argument_resolver" alias="debug.argument_resolver"/>
@@ -5914,10 +6144,10 @@
     <service id="turbo.broadcaster.imux" alias="turbo.broadcaster.action_renderer"/>
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id=".service_locator.gFlme_s" alias=".service_locator.y4_Zrx."/>
+    <service id=".service_locator.5pH3mnW" alias=".service_locator.SN3hQvo"/>
     <service id=".service_locator.9e2t_lq" alias=".service_locator.CsMkqUa"/>
     <service id=".service_locator.021p6Rm" alias=".service_locator.IlfS6mK"/>
     <service id=".service_locator.UYrcBMp" alias=".service_locator.7P9.byS"/>
-    <service id=".service_locator.5pH3mnW" alias=".service_locator.SN3hQvo"/>
-    <service id=".service_locator.YMnfGOP" alias=".service_locator.jUv.zyj"/>
+    <service id=".service_locator.qGtl5r3" alias=".service_locator.6DiDDZc"/>
   </services>
 </container>

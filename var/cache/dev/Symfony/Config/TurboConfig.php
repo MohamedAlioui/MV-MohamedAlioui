@@ -17,7 +17,7 @@ class TurboConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInte
     private $_usedProperties = [];
 
     /**
-     * @default {"enabled":true,"entity_template_prefixes":{"App\\Entity\\":"broadcast\/"},"doctrine_orm":{"enabled":false}}
+     * @default {"enabled":true,"entity_template_prefixes":{"App\\Entity\\":"broadcast\/"},"doctrine_orm":{"enabled":true}}
     */
     public function broadcast(array $value = []): \Symfony\Config\Turbo\BroadcastConfig
     {

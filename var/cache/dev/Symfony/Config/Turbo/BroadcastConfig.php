@@ -44,23 +44,12 @@ class BroadcastConfig
     }
 
     /**
-     * @template TValue
-     * @param TValue $value
      * Enable the Doctrine ORM integration
-     * @default {"enabled":false}
-     * @return \Symfony\Config\Turbo\Broadcast\DoctrineOrmConfig|$this
-     * @psalm-return (TValue is array ? \Symfony\Config\Turbo\Broadcast\DoctrineOrmConfig : static)
-     */
-    public function doctrineOrm(array $value = []): \Symfony\Config\Turbo\Broadcast\DoctrineOrmConfig|static
+     * @default {"enabled":true}
+    */
+    public function doctrineOrm(array $value = []): \Symfony\Config\Turbo\Broadcast\DoctrineOrmConfig
     {
-        if (!\is_array($value)) {
-            $this->_usedProperties['doctrineOrm'] = true;
-            $this->doctrineOrm = $value;
-
-            return $this;
-        }
-
-        if (!$this->doctrineOrm instanceof \Symfony\Config\Turbo\Broadcast\DoctrineOrmConfig) {
+        if (null === $this->doctrineOrm) {
             $this->_usedProperties['doctrineOrm'] = true;
             $this->doctrineOrm = new \Symfony\Config\Turbo\Broadcast\DoctrineOrmConfig($value);
         } elseif (0 < \func_num_args()) {
@@ -86,7 +75,7 @@ class BroadcastConfig
 
         if (array_key_exists('doctrine_orm', $value)) {
             $this->_usedProperties['doctrineOrm'] = true;
-            $this->doctrineOrm = \is_array($value['doctrine_orm']) ? new \Symfony\Config\Turbo\Broadcast\DoctrineOrmConfig($value['doctrine_orm']) : $value['doctrine_orm'];
+            $this->doctrineOrm = new \Symfony\Config\Turbo\Broadcast\DoctrineOrmConfig($value['doctrine_orm']);
             unset($value['doctrine_orm']);
         }
 
@@ -105,7 +94,7 @@ class BroadcastConfig
             $output['entity_template_prefixes'] = $this->entityTemplatePrefixes;
         }
         if (isset($this->_usedProperties['doctrineOrm'])) {
-            $output['doctrine_orm'] = $this->doctrineOrm instanceof \Symfony\Config\Turbo\Broadcast\DoctrineOrmConfig ? $this->doctrineOrm->toArray() : $this->doctrineOrm;
+            $output['doctrine_orm'] = $this->doctrineOrm->toArray();
         }
 
         return $output;

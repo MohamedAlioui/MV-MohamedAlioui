@@ -19,6 +19,27 @@ a release.
 
 ## [Unreleased]
 
+## [3.15.0]
+### Added
+- SoftDeleteable: `Gedmo\SoftDeleteable\Event\PreSoftDeleteEventArgs` and
+  `Gedmo\SoftDeleteable\Event\PostSoftDeleteEventArgs` classes.
+- Add support for injecting a `psr/clock` implementation into event adapters
+  that create new `DateTimeInterface` objects (SoftDeleteable and Timestampable)
+
+### Changed
+- Make doctrine/annotations an optional dependency.
+- Remove `@internal` annotation from `Gedmo\Mapping\Driver\AttributeReader`.
+
+### Deprecated
+- Do not add type-hinted parameters `Gedmo\SoftDeleteable\Event\PreSoftDeleteEventArgs` and
+  `Gedmo\SoftDeleteable\Event\PostSoftDeleteEventArgs` classes to `preSoftDelete` and `postSoftDelete` events.
+- The `createLifecycleEventArgsInstance()` method on `Gedmo\Mapping\Event\AdapterInterface`
+  implementations is deprecated, use your own subclass of `Doctrine\Persistence\Event\LifecycleEventArgs` as needed.
+
+### Fixed
+- Add conflict against "doctrine/orm" >= 3.
+- Add conflict against "doctrine/dbal" => 4.
+
 ## [3.14.0]
 ### Added
 - Support for Symfony 7
@@ -31,7 +52,7 @@ a release.
 
 ### Deprecated
 - Calling `Gedmo\Mapping\Event\Adapter\ORM::getObjectManager()` and `getObject()` on EventArgs that do not implement `getObjectManager()` and `getObject()` (such as old EventArgs implementing `getEntityManager()` and `getEntity()`) 
-- Calling `Gedmo\Uploadable\Event\UploadableBaseEventArgs::getEntityManager()` and `getEntity()`. Call `getObjectManager()` and `getObject()` instead. 
+- Calling `Gedmo\Uploadable\Event\UploadableBaseEventArgs::getEntityManager()` and `getEntity()`. Call `getObjectManager()` and `getObject()` instead.
 
 ## [3.13.0] - 2023-09-06
 ### Fixed

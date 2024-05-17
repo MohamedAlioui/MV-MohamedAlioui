@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '395acaa2f3a6d76b2a5d131cd22f4089753e8eec',
+        'reference' => 'c03e2307cc0062759ad54786ea67fd92113bc209',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '395acaa2f3a6d76b2a5d131cd22f4089753e8eec',
+            'reference' => 'c03e2307cc0062759ad54786ea67fd92113bc209',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -55,6 +55,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'doctrine/data-fixtures' => array(
+            'pretty_version' => '1.7.0',
+            'version' => '1.7.0.0',
+            'reference' => 'bbcb74f2ac6dbe81a14b3c3687d7623490a0448f',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../doctrine/data-fixtures',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
         'doctrine/dbal' => array(
             'pretty_version' => '3.8.4',
             'version' => '3.8.4.0',
@@ -81,6 +90,15 @@
             'install_path' => __DIR__ . '/../doctrine/doctrine-bundle',
             'aliases' => array(),
             'dev_requirement' => false,
+        ),
+        'doctrine/doctrine-fixtures-bundle' => array(
+            'pretty_version' => '3.6.0',
+            'version' => '3.6.0.0',
+            'reference' => '87f5d53708a3855aa018bf0a00d0d4b0ef58a956',
+            'type' => 'symfony-bundle',
+            'install_path' => __DIR__ . '/../doctrine/doctrine-fixtures-bundle',
+            'aliases' => array(),
+            'dev_requirement' => true,
         ),
         'doctrine/doctrine-migrations-bundle' => array(
             'pretty_version' => '3.3.0',
@@ -265,8 +283,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache-implementation' => array(
